@@ -1,18 +1,14 @@
 const coordinates = document.querySelector('.coordinates');
 const ballAnimation = document.querySelector('.ballAnimation');
-const cssRoot = document.querySelector(':root');
-let mousex;
-let mousey;
+const cssRoot = document.documentElement;
 
-/*function setPositionX(){
-    cssRoot.style.setProperty('--positionX', ' ')*/
 
-document.addEventListener("mousemove", () => {
-  let mousex = event.clientX; // Gets Mouse X
-  let mousey = event.clientY; // Gets Mouse Y
-  coordinates.textContent = `translate( ${mousex}px , ${mousey}px )`; // Prints data
-  ballAnimation.style.transform = `translate( ${mousex}px , ${mousey}px )`;
-  
+document.addEventListener("mousemove", event => {
+  let mouseX = event.clientX; // Gets Mouse position X
+  let mouseY = event.clientY; // Gets Mouse position Y
+  coordinates.textContent = `translate( ${mouseX}px , ${mouseY}px )`; // Prints data
+  cssRoot.style.setProperty('--positionX', `${mouseX}px`);
+  cssRoot.style.setProperty('--positionY', `${mouseY}px`);
   
 });
 

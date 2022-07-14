@@ -1,7 +1,7 @@
 :root{
     --positionX: 0;
     --positionY: 0;
-    --sizeMultiplier: 1;
+    --sizeMultiplier: 2;
 }
 
 .ballAnimation{
@@ -12,35 +12,28 @@
   display:inline-block;
   top:30px;
   left:0;
-  height:20px;
-  width:20px;
-  background-color:white;
+  height:12px;
+  width:12px;
+  transform: translate(var(--positionX), var(--positionY))
+             scale(1);
+  background-color:blue;
   border-radius:50%;
-  box-shadow: 0 0 30px 20px blue;
-  animation: ballAnimation-animation 2s ease-in-out infinite;
+  box-shadow: 0 0 10px 10px blue;
+  animation: ballAnimation-animation 1s ease-in infinite;
 }
 
 @keyframes ballAnimation-animation{
   0%{
-    box-shadow: 0 0 30px 10px blue;
-    height:20px;
-    width:20px;
-    transform: translate ( --positionX, --positionY )
-                          scale (--sizeMultiplier);
+    transform: translate(var(--positionX), var(--positionY))
+               scale(1);
   }
   50%{
-    box-shadow: 0 0 40px 20px blue;
-    height:30px;
-    width:30px;
-    transform: translate ( --positionX, --positionY )
-                          scale (--sizeMultiplier);
+    transform: translate(var(--positionX), var(--positionY))
+               scale(var(--sizeMultiplier));
   }
   100%{
-    box-shadow: 0 0 30px 10px blue;
-    height:20px;
-    width:20px;
-    transform: translate ( --positionX, --positionY )
-                          scale (--sizeMultiplier);
+    transform: translate(var(--positionX), var(--positionY))
+               scale(1);
   }
   
 };
